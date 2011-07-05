@@ -14,7 +14,7 @@ module RailsJquerySelectors
       ActiveRecord::Base.descendants.each do |model|
         @model = model
         @instance = @model.new
-        template "rails_jquery_selectors.js.coffee", "app/assets/javascripts/rails_jquery_selectors.js.coffee"
+        template "rails_jquery_selectors.js.coffee.erb", "app/assets/javascripts/rails_jquery_selectors.js.coffee"
       end
     end
   end
