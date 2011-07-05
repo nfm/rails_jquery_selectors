@@ -1,9 +1,11 @@
-class <%= @model %>
-  <%- @instance.attribute_names.each do |attr| %>
-    <%= attr %>: ->
-      <%= %Q("##{@model.to_s.underscore}_#{attr}") %>
-  <%- end %>
-  <%- @instance.nested_attributes_options.keys.each do |nested_attr| %>
-    <%= nested_attr %>: ->
-      <%= %Q("##{nested_attr}") %>
-  <%- end %>
+<%- @models.each do |model| %>
+class <%= model %>
+<% @instance.attribute_names.each do |attr| -%>
+  <%= attr %>: ->
+    <%= %Q("##{model.to_s.underscore}_#{attr}") %>
+<% end -%>
+<% @instance.nested_attributes_options.keys.each do |nested_attr| -%>
+  <%= nested_attr %>: ->
+    <%= %Q("##{nested_attr}") %>
+<% end -%>
+<% end -%>
