@@ -4,7 +4,7 @@ require "rails_jquery_selectors/version"
 
 Gem::Specification.new do |s|
   s.name        = "rails_jquery_selectors"
-  s.version     = Rails::Jquery::Selectors::VERSION
+  s.version     = RailsJquerySelectors::VERSION
   s.authors     = ["Nicholas Firth-McCoy"]
   s.email       = ["nicholas@2suggestions.com.au"]
   s.homepage    = "https://github.com/2suggestions/rails_jquery_selectors"
@@ -16,4 +16,15 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  if s.respond_to? :specification_version then
+    s.specification_version = 3
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, ["~> 3.1.0.rc4"])
+    else
+      s.add_dependency(%q<rails>, ["~> 3.1.0.rc4"])
+    end
+  else
+    s.add_dependency(%q<rails>, ["~> 3.1.0.rc4"])
+  end
 end
