@@ -12,7 +12,8 @@ module RailsJquerySelectors
       puts "generate"
       Dir["#{Rails.root}/**/models/**/*.rb"].map { |file| require file }
       ActiveRecord::Base.descendants.each do |model|
-        instance = model.new
+        @model = model
+        @instance = @model.new
         template "rails_jquery_selectors.js.coffee", "app/assets/javascripts/rails_jquery_selectors.js.coffee"
       end
     end

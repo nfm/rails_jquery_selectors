@@ -1,3 +1,4 @@
-class <%= model %>:
-  <% instance.attributes.each do |attr| %>
+class <%= @model %>:
+  <% @instance.attributes.each do |attr| %>
     <%= attr %>
+  <% end %>
